@@ -2,12 +2,10 @@ import Fastify from 'fastify';
 
 const fastify = Fastify();
 
-fastify.get('/', async function(request, reply) {
-  return "Hello World1";
-});
+fastify.register(import('./test/route.js'));
 
-fastify.get('/test', async function(request, reply) {
-  return "Test";
+fastify.get('/', async function(request, reply) {
+  return "Hello World";
 });
 
 fastify.listen(3000, () => {
